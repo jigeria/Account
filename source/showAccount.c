@@ -2,7 +2,7 @@
 
 void showAccount(ACCOUNT * head)
 {
-	ACCOUNT *node = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
+	ACCOUNT *node;
 	node = head->link;
 	int i;
 	char nameTemp[10];
@@ -28,7 +28,7 @@ void showAccount(ACCOUNT * head)
 					printf("%d", node->accountNumber[i]);
 			}
 
-			free(node);
+			//free(node);
 
 			return;
 		}
@@ -38,7 +38,7 @@ void showAccount(ACCOUNT * head)
 
 	printf("\nCan not find '%s'\n", nameTemp);
 
-	free(node);
+	//free(node);
 	
 	return;
 }
