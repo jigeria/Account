@@ -1,6 +1,6 @@
 #include "makeAccount.h"
 
-ACCOUNT* makeAccount(ACCOUNT *prevNode)
+void makeAccount(ACCOUNT *prev)
 {
 	srand(time(NULL));
 
@@ -8,7 +8,6 @@ ACCOUNT* makeAccount(ACCOUNT *prevNode)
 	int accountTempArr[ACCOUNT_COUNT - 3];
 	
 	ACCOUNT *node = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
-	prevNode->link = node;
 
 	printf("------------Make Account------------\n\n");
 
@@ -51,10 +50,19 @@ ACCOUNT* makeAccount(ACCOUNT *prevNode)
 			printf("-");
 		else
 			printf("%d", node->accountNumber[i]);
-
 	}
-		
-	
 
-	return node;
+	while (1)
+	{
+		if (prev->link == NULL)
+		{
+			prev->link = node;
+			node->link = NULL;
+
+			break;
+		}
+
+		prev = prev->link;
+	}
+
 }

@@ -7,10 +7,11 @@ Account version1.0
 --------function---------
 receipt of money
 to withdraw money
+show account
 
 --------information--------
 name
-account money
+account number
 phone number
 
 */
@@ -23,25 +24,20 @@ phone number
 int main()
 {
 	ACCOUNT * head = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
-	ACCOUNT * prevNode = NULL;
 	head->link = NULL;
-	prevNode = head;
+
 	int selectCount = 0;
 
 	while (1)
 	{
 		menu();
 
-		if (selectCount != 0)
-			getchar();
-
 		scanf("%d", &selectCount);
-		
 
 		switch (selectCount)
 		{
 		case 1:
-			prevNode = makeAccount(prevNode);
+			makeAccount(head);
 			break;
 
 		case 2:
@@ -49,6 +45,7 @@ int main()
 			break;
 
 		case 3:
+			showAccount(head);
 
 			break;
 
@@ -60,6 +57,7 @@ int main()
 			break;
 
 		default:
+			puts("");
 			puts("Error!! Try again!!");
 
 			break;

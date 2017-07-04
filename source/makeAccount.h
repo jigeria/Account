@@ -11,5 +11,5 @@ typedef struct {
 
 }ACCOUNT;
 
-ACCOUNT* makeAccount(ACCOUNT *prevNode);
+void makeAccount(ACCOUNT *prevNode);
 void showAccount(ACCOUNT *head);
