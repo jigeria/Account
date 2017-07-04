@@ -6,5 +6,19 @@
 #include <windows.h>
 #include <string.h>
 
-#define PHONE_COUNT 11
-#define ACCOUNT_COUNT 16
+#define PHONE_COUNT 12
+#define ACCOUNT_COUNT 20
+
+
+
+/*
+typedef struct NODE{
+
+	char name[10];
+	char phoneNumber[11];
+	char accountNumber[20];
+
+	struct ACCOUNT *link;
+
+}ACCOUNT;
+*/

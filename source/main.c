@@ -18,12 +18,12 @@ phone number
 #define _CRT_SECURE_NO_WARNINIGS
 
 #include "basic.h"
-#include "function.h"
+#include "makeAccount.h"
 
 int main()
 {
 	ACCOUNT * head = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
-	ACCOUNT * prevNode = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
+	ACCOUNT * prevNode = NULL;
 	head->link = NULL;
 	prevNode = head;
 	int selectCount = 0;
@@ -41,7 +41,7 @@ int main()
 		switch (selectCount)
 		{
 		case 1:
-			makeAccount(prevNode);
+			prevNode = makeAccount(prevNode);
 			break;
 
 		case 2:

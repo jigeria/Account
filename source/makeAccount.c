@@ -1,15 +1,13 @@
-#include "function.h"
+#include "makeAccount.h"
 
-void makeAccount(ACCOUNT *prevNode)
+ACCOUNT* makeAccount(ACCOUNT *prevNode)
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 
 	int i = 0, temp = 0, count = 0;
-	int phoneTempArr[PHONE_COUNT + 3];
-
+	int accountTempArr[ACCOUNT_COUNT - 3];
+	
 	ACCOUNT *node = (ACCOUNT *)calloc(1, sizeof(ACCOUNT));
-
-	node->link = NULL;
 	prevNode->link = node;
 
 	printf("------------Make Account------------\n\n");
@@ -24,29 +22,39 @@ void makeAccount(ACCOUNT *prevNode)
 	fgets(node->phoneNumber, sizeof(node->phoneNumber), stdin);
 
 	printf("Make Account \n");
-	for (i = 0; i < ACCOUNT_COUNT; i++)
-	{
-		node->accountNumber[i] = rand() % 10;
-	}
+
 
 	printf("\n------------Check your account information------------\n");
 	printf("Name : %s", node->name);
 
 	printf("\nPhone Number : %s", node->phoneNumber);
 
-	printf("\nAccount number : ");
+	//printf("\nAccount number : ");
 	for (i = 0; i < ACCOUNT_COUNT; i++)
 	{
-		if (!((i + 1) % 4) && (i+1) != 16)
+		if (!((i + 1) % 5) && (i+1) != 20)
 		{
-			printf("%d", node->accountNumber[i]);
-			printf("-");
+			node->accountNumber[i] = '-';
 		}
 		else
 		{
-			printf("%d", node->accountNumber[i]);
+			node->accountNumber[i] = rand() % 10;
 		}
 	}
 
+	//printf("\n AccountNumber : %s", node->accountNumber);
 	puts("");
+
+	for (i = 0; i < ACCOUNT_COUNT; i++)
+	{
+		if (node->accountNumber[i] == 45)
+			printf("-");
+		else
+			printf("%d", node->accountNumber[i]);
+
+	}
+		
+	
+
+	return node;
 }
