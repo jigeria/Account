@@ -30,7 +30,7 @@ int main()
 
 	while (1)
 	{
-		menu();
+		menu(MAKE_ACCOUNT);
 
 		scanf("%d", &selectCount);
 
@@ -54,7 +54,7 @@ int main()
 			puts("The End...");
 			Sleep(5000);
 
-			break;
+			return 0;
 
 		default:
 			puts("");
